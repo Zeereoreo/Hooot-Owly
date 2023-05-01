@@ -2,11 +2,11 @@
 name: main
 
 on:
-  paths: -"client/owl-app/**"
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]    # main 브랜치에서 push, pull_request 이벤트가 일어났을 때 실행 
+  paths: -"client/owl-app/**"
 
 jobs:
   build:
