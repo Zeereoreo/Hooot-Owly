@@ -30,11 +30,6 @@ function App() {
   // const url_threads_test_search1 = `${process.env.REACT_APP_URL_NGROKTEST}/questions/search/?title=아무거나`;
   // const url_threads_test_queries = `${process.env.REACT_APP_URL_NGROKTEST}/questions/${queries}`
 
-  //페이지뷰를 상태로 관리하고 클릭핸들러를 만들어서 해당 페이지를 클릭할 때 page에 맞는 걸 보여줘야 한다.
-  //page&size=10 은 10개씩 불러와진다.
-  //1 2 3 4 ..... pageCount - totalElements....4 *30 (totalPages)  61....
-  //totalElements 51..... 삭제된거 제외 (10개 삭제)
-  //검색기능 search.... totalElements (61개) 삭제된거 포함 ---- pageCount: 늘어날수도 있다
 
   // const [threads, isPending, error] = useFetch(url_threads_test);
   const [renderThreads, setRenderThreads] = useState([]);
