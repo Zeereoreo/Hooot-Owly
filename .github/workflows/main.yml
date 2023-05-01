@@ -6,11 +6,13 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]    # main 브랜치에서 push, pull_request 이벤트가 일어났을 때 실행 
-  paths: -"client/owl-app/**"
+  
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+     working-directory: ./client/owl-app
     steps:
       - name: Checkout source code
         uses: actions/checkout@master
@@ -26,9 +28,11 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+          working-directory: ${{ env.working-directory }}
 
       - name: Build
         run: npm run build
+          working-directory: ${{ env.working-directory }}
 
       - name: Deploy
         env:
