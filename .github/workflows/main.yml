@@ -2,7 +2,7 @@
 name: main
 
 on:
-  paths: -"client
+  paths: -"client/owl-app/**"
   push:
     branches: [ main ]
   pull_request:
