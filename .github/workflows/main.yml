@@ -28,11 +28,11 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-          working-directory: ${{ env.working-directory }}
+        working-directory: ${{ env.working-directory }}
 
       - name: Build
         run: npm run build
-          working-directory: ${{ env.working-directory }}
+        working-directory: ${{ env.working-directory }}
 
       - name: Deploy
         env:
