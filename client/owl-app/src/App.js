@@ -1,8 +1,7 @@
-import { useState, useEffect, lazy, Suspense, useRef, useCallback } from 'react';
+import { useState, useEffect, lazy, Suspense, useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyle';
 import { UserProvider } from './utils/UserContextConfig';
-import useFetch from './utils/useFetch';
 import styled from 'styled-components';
 import { axiosDefault } from './utils/axiosConfig';
 //import pages with Lazy, and load Suspense while loading

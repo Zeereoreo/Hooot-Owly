@@ -33,6 +33,8 @@ jobs:
       - name: Build
         run: npm run build
         working-directory: ${{ env.working-directory }}
+        env: 
+          CI: false
 
       - name: Deploy
         env:
