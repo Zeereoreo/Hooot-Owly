@@ -1,6 +1,6 @@
-import styled from "styled-components";
+
 import { Link } from 'react-router-dom';
-import {CreateWrap,CreateBlock, CreateHeader,CreateEditorLogout,CreateButtonLogout, ButtonBlock,LoginButton,SignupButton, CreateButtonLogin} from './AnswerStyle'
+import {CreateBlock, CreateHeader,CreateEditorLogout, ButtonBlock,LoginButton,SignupButton, CreateButtonLogin} from './AnswerStyle'
 
 const AnswerLogout = ({openModal}) => {
 

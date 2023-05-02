@@ -106,12 +106,10 @@ const EditorInput = styled.textarea`
     font-weight: var(--fonts-weight-regular);
     background: var(--colors-dullbrown);
     color: var(--colors-text-default);
-
 &::placeholder{
     color: var(--colors-text-placeholder-dark);
     font-weight: var(--fonts-weight-regular);
 }
-
 &:focus, &:active{
     border: 1px solid var(--colors-yellow);
 }

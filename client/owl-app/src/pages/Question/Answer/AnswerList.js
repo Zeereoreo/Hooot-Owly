@@ -4,6 +4,10 @@ import { useState } from "react";
 import AnswerCreate from "./AnswerCreate";
 import { useNavigate } from "react-router-dom"
 import { axiosAuth } from "../../../../src/utils/axiosConfig";
+import draftToHtml from 'draftjs-to-html';
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { editorState, convertToRaw } from 'draft-js';
 
 const AnswerWrap = styled.div`
     padding-top: 10px;
@@ -19,13 +23,15 @@ const Answerlist = ({ question, openModal }) => {
 
     // const navigate = useNavigate();
 
+
     const addAnswerHandler = (newAnswer) => {
 
-
+        const editorToHtml = draftToHtml(convertToRaw(newAnswer.getCurrentContent()));
+        console.log("editor HTML ok? :" , editorToHtml)
         const url_apost = `${process.env.REACT_APP_URL_NGROKTEST}/questions/${question.questionId}/answers`
+        // const newHtmlAnswer : draftToHtml(convertToRaw(editorState.getCurrentContent(newAnswer)))
 
-
-        axiosAuth.post(url_apost, { "content": newAnswer })
+        axiosAuth.post(url_apost, { "content": editorToHtml })
             .then(res => {
                 console.log("answer patch success!", res);
                 setAnswers([...answers, res.data]);
@@ -39,10 +45,10 @@ const Answerlist = ({ question, openModal }) => {
     const updateAnswerHandler = (answer_id, updateAnswer) => {
 
         const url_apatch = `${process.env.REACT_APP_URL_NGROKTEST}/questions/${question.questionId}/answers/${answer_id}`
-
+        const editorToHtml = draftToHtml(convertToRaw(updateAnswer.getCurrentContent()));
 
         axiosAuth
-            .patch(url_apatch, { "content": updateAnswer })
+            .patch(url_apatch, { "content": editorToHtml })
             .then(res => {
                 console.log("update answer success!")
                 setAnswers(answers.map(el => {
